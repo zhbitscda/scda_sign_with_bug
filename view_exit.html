@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="format-detection" content="telephone=no">
+        <meta charset="UTF-8">
+
+        <meta name="description" content="Violate Responsive Admin Template">
+        <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+
+        <title>大学生职业发展协会-查看签到</title>
+            
+        <!-- CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/animate.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/form.css" rel="stylesheet">
+        <link href="css/calendar.css" rel="stylesheet">
+        <link href="css/media-player.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/icons.css" rel="stylesheet">
+        <link href="css/generics.css" rel="stylesheet"> 
+    </head>
+    <body id="skin-blur-violate">
+        <header id="header" class="media">
+            <a href="" id="menu-toggle"></a> 
+            <a class="logo pull-left" href="index.html">综合活动签到系统</a>
+            
+            <div class="media-body">
+                <div class="media" id="top-menu">
+
+                    
+                    
+
+                    <div id="time" class="pull-right">
+                        <span id="hours"></span>
+                        :
+                        <span id="min"></span>
+                        :
+                        <span id="sec"></span>
+                    </div>
+              
+                 	<div class="media-body">
+                 		<input type="text" class="main-search" style="width: 50%;">          
+                    </div>         
+                </div>
+            </div>
+        </header>
+        
+        <div class="clearfix"></div>
+        
+        <section id="main" class="p-relative" role="main">
+            
+            <!-- Sidebar -->
+            <aside id="sidebar">
+                
+                <!-- Sidbar Widgets -->
+                <div class="side-widgets overflow">
+                    <!-- Profile Menu -->
+                    <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
+                        <a href="" data-toggle="dropdown">
+                            <img class="profile-pic animated" src="img/profile-pic.jpg" alt="">
+                        </a>
+                        <ul class="dropdown-menu profile-menu">
+                            <li><a href="">My Profile</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                            <li><a href="">Messages</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                            <li><a href="">Settings</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                            <li><a href="">Sign Out</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                        </ul>
+                        <h4 class="m-0">Malinda Hollaway</h4>
+                        @malinda-h
+                    </div>
+                    
+                    <!-- Calendar -->
+                    <div class="s-widget m-b-25">
+                        <div id="sidebar-calendar"></div>
+                    </div>
+                    
+        
+                    
+                   
+                </div>
+                
+                <!-- Side Menu -->
+                 <ul class="list-unstyled side-menu">
+                    <li class="dropdown">
+                        <a class="sa-side-home" href="">
+                            <span class="menu-item">活动管理</span>
+                        </a>
+                        <ul class="list-unstyled menu-item">
+                            <li><a href="list_act.html">活动列表</a></li>
+                            <li><a href="add_act.html">添加活动</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="sa-side-widget" href="">
+                            <span class="menu-item">名单管理</span>
+                        </a>
+                        <ul class="list-unstyled menu-item">
+                            <li><a href="list_list.html">名单列表</a></li>
+                            <li><a href="add_list.html">添加名单</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="sa-side-chart" href="data_export.html">
+                            <span class="menu-item">数据导出</span>
+                        </a>
+                    </li>
+          		    <li class="dropdown">
+                        <a class="sa-side-ui" href="">
+                            <span class="menu-item">用户管理</span>
+                        </a>
+                        <ul class="list-unstyled menu-item">
+                            <li><a href="list_account.html">用户列表</a></li>
+                            <li><a href="add_account.html">添加用户</a></li>
+                        </ul>
+                   </li>
+                </ul>
+                
+            </aside>
+        
+            <!-- Content -->
+            <section id="content" class="container">
+            
+                
+                
+                <!-- Breadcrumb -->
+                <ol class="breadcrumb hidden-xs">
+                    <li><a href="#">主页</a></li>
+                    <li><a href="#">活动签到</a></li>
+                    <li class="active">查看签退</li>
+                </ol>
+                
+                <h4 class="page-title">查看签退</h4>
+                                
+
+                <!-- Table Striped -->
+                <div class="block-area" id="tableStriped">
+       <button type="button" class="btn btn-sm" onclick="view_sign()">查看已到</button>
+       <button type="button" class="btn btn-sm" onclick="view_unsign()">查看未到</button>
+       <div style="width: 100%;height: 10px;"></div>
+                    <div class="table-responsive overflow">
+                    
+                        <table class="tile table table-bordered table-striped">
+                            <thead>
+                                <tr >
+                                    <th style="text-align: center;">姓名</th>
+                                    <th style="text-align: center;">电话</th>
+                                    <th style="text-align: center;">地址/摊位号</th>
+                                    <th style="text-align: center;">部门</th>
+                                    <th style="text-align: center;">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id='signlist_main' style="text-align: center;">
+                                
+                                  <!--
+                                  	<tr>
+                                  		<td>1</td>
+                                    <td>Jhon </td>
+                                    <td>Makinton </td>
+                                    <td>@makinton</td>
+                                    <td><button class="btn btn-xs btn-alt m-r-5" data-appid="10" onclick="Sign_action(this)" style="padding-top: -10px;">签到</button></td>
+                                </tr>
+
+                                  	作者：offline
+                                  	时间：2017-02-09
+                                  	描述：
+                                  -->  
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <br/><br/>
+        </section>
+        
+        <!-- Javascript Libraries -->
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+        <script>
+
+        </script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        
+        <!-- UX -->
+        <script src="js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+        
+        <!-- Other -->
+        <script src="js/calendar.min.js"></script> <!-- Calendar -->
+        <script src="js/feeds.min.js"></script> <!-- News Feeds -->
+        <script src="js/js_viewer_exit.js"></script>
+        
+        <!-- All JS functions -->
+        <script src="js/functions.js"></script>
+        <script src="js/layer/2.1/layer.js"></script>
+    </body>
+</html>
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<script src="js/jquery.min.js"></script> 
+<script>
+	var socket=new WebSocket('ws://119.29.169.20:9090');
+    connect_to_server();
+function refresh_msg(data){
+	//var json_obj=eval(data);
+	var appstr='<div class="alert alert-success">'+data+'</div>';
+	$('#main_chat').append(appstr);
+}
+function connect_to_server(){
+    socket.onopen = function() {
+        $("#main_chat").append('<div class="alert alert-default">您已进入聊天室</div>');
+            socket.onmessage = function(event) {
+          refresh_msg(event.data);
+       };
+      socket.onclose = function(event) {
+        $("#main_chat").append('<div class="alert alert-warning">您已断开聊天室</div>');
+     };
+    };
+
+}
+
+function sendmsg(){
+  if($('#chatbox').val()!=null){
+  	var data=$('#nickname').val()+':'+$('#chatbox').val();
+  	//var socket=new WebSocket('ws://119.29.169.20:9090');
+  	socket.send(data);
+  	$('#chatbox').val('');
+  } 
+  else{
+  	alert('信息为空！');
+  }
+};
+$('#main_chat').ready(function(){
+		connect_to_server();
+		//alert('Connect Success!');
+});
+
+</script>
+<!--<script>
+	function connect(data){
+	if(socket==null){
+		var socket = new WebSocket('ws://119.29.169.20:9090');
+	}
+	 
+ // alert('Click!');
+  socket.onopen = function(event) { 
+  socket.send(data); 
+//  alert(data);
+  socket.onmessage = function(event) { 
+    console.log('Client received a message',event); 
+   var appstr='<div class="alert alert-success">'+event.data+'</div>';
+	$('#main_chat').append(appstr);
+  }; 
+  socket.onclose = function(event) { 
+  	alert('连接关闭');
+    console.log('Client notified socket has closed',event); 
+  }; 
+  };
+}
+	function sendmsg(){
+		var str=$("#chatbox").val();
+		connect(str);
+		$("#chatbox").empty();
+	}
+</script>!-->
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>typhcl</title>
+		<link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<div class="container">
+			<!--
+            	作者：286785029@qq.com
+            	时间：2016-01-27
+            	描述：main
+            -->
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					chat
+				</div>
+				<div class="panel-body" id='main_chat' style="min-height: 300px;">
+				<!--		<div class="alert alert-success">
+						<span>张三:</span>xsxxxxx
+					</div>   -->
+
+
+				</div>
+				<div class="panel-footer">
+					<div class="input-group">
+						<input type="text" id='nickname' class="form-control" placeholder="your name" style="width: 20%;">
+						<input type="text" id='chatbox' class="form-control" style="width: 75%;" placeholder="chat main...">
+						<span class="input-group-btn">
+        <button id='button1' onclick="sendmsg()" class="btn btn-default" type="button">send!</button>
+      </span>
+					</div>
+					<!-- /input-group -->
+				</div>
+
+			</div>
+		</div>
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</body>
+</html>
