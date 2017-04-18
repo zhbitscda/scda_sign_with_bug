@@ -1,0 +1,7 @@
+Install Guidence£º
+1.Import the "import_this.sql" into the mysql database
+2.Git clone all files
+3.Setting the database info in the ./lib/config_global.php
+4.Default user:admin password:123456
+5.Server need the memcache for the session storage.
+6.Change the dir upload into 777 on the linux system
