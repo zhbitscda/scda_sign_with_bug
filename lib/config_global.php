@@ -1,9 +1,9 @@
 <?
 /*************MYSQL数据库设置******************/
 $mysql_db_serv="127.0.0.1";   //数据库服务器
-$mysql_db_usr="scda";     //数据库用户名
-$mysql_db_pwd="scda2017!";     //数据库密码
-$mysql_db_nam="scda";    //数据库名字
+$mysql_db_usr="root";     //数据库用户名
+$mysql_db_pwd="11111111";     //数据库密码
+$mysql_db_nam="scdasys";    //数据库名字
 $mysql_charset="utf8";    //数据库编码模式
 $mysql_header="";    //数据表前缀
 /*************MSSQL数据库设置******************/
